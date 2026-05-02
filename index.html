@@ -1,143 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Michael Leramo — SOC Practitioner</title>
-  <meta name="description" content="SOC Practitioner · AI · IoT · Automation. Michael Leramo's professional portfolio." />
-  <style>
-    :root {
-      --bg0: #07090f;
-      --bg1: #0d1018;
-      --bg2: #131820;
-      --border: rgba(255,255,255,0.07);
-      --border-h: rgba(255,255,255,0.14);
-      --accent: #00dfa8;
-      --accent-dim: rgba(0,223,168,0.1);
-      --blue: #4d94ff;
-      --blue-dim: rgba(77,148,255,0.1);
-      --t1: #dde2f0;
-      --t2: #707898;
-      --t3: #3e4560;
-      --mono: 'Courier New', monospace;
-      --sans: system-ui, -apple-system, sans-serif;
-      --r: 10px;
-      --r-sm: 6px;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg0); color: var(--t1); font-family: var(--sans); line-height: 1.6; }
+<style>
+:root {
+  --bg0: #f5f6fa;
+  --bg1: #ffffff;
+  --bg2: #f0f1f7;
+  --border: rgba(0,0,0,0.07);
+  --border-h: rgba(0,0,0,0.14);
+  --accent: #0b7c6e;
+  --accent-dim: rgba(11,124,110,0.08);
+  --accent-bright: #09a88f;
+  --blue: #2563eb;
+  --blue-dim: rgba(37,99,235,0.08);
+  --t1: #111827;
+  --t2: #4b5563;
+  --t3: #9ca3af;
+  --mono: 'Courier New', monospace;
+  --r: 10px;
+  --r-sm: 6px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg0); color: var(--t1); font-family: system-ui, sans-serif; line-height: 1.6; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 0 0 3rem; }
 
-    .wrap { max-width: 680px; margin: 0 auto; padding: 0 1rem 4rem; }
+.hero {
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  padding: 3rem 2rem 2.5rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: radial-gradient(var(--border) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
+}
+.online {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-family: var(--mono); font-size: 12px; color: var(--t3);
+  margin-bottom: 14px; position: relative;
+}
+.pulse {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent-bright);
+  animation: blink 2s infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+.hero-name { font-size: 34px; font-weight: 600; color: var(--t1); letter-spacing: -0.02em; margin-bottom: 8px; position: relative; }
+.hero-title { font-family: var(--mono); font-size: 12px; color: var(--accent); margin-bottom: 12px; letter-spacing: 0.04em; position: relative; }
+.hero-bio { font-size: 14px; color: var(--t2); max-width: 460px; margin: 0 auto 2rem; line-height: 1.75; position: relative; }
+.links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; position: relative; }
+.lbtn {
+  font-size: 13px; padding: 7px 16px;
+  border-radius: var(--r-sm); border: 1px solid var(--border-h);
+  background: var(--bg0); color: var(--t1); text-decoration: none;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.lbtn:hover { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
 
-    /* HERO */
-    .hero {
-      background: var(--bg1);
-      border-bottom: 1px solid var(--border);
-      padding: 4rem 2rem 3rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-      background-size: 44px 44px;
-      pointer-events: none;
-    }
-    .online {
-      display: inline-flex; align-items: center; gap: 7px;
-      font-family: var(--mono); font-size: 12px; color: var(--t2);
-      margin-bottom: 16px; position: relative;
-    }
-    .pulse {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--accent);
-      animation: blink 2s infinite;
-    }
-    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
-    .hero-name { font-size: 36px; font-weight: 600; color: var(--t1); letter-spacing: -0.02em; margin-bottom: 8px; position: relative; }
-    .hero-title { font-family: var(--mono); font-size: 12px; color: var(--accent); margin-bottom: 14px; letter-spacing: 0.04em; position: relative; }
-    .hero-bio { font-size: 15px; color: var(--t2); max-width: 480px; margin: 0 auto 2rem; line-height: 1.8; position: relative; }
-    .links { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; position: relative; }
-    .lbtn {
-      font-size: 13px; padding: 8px 18px;
-      border-radius: var(--r-sm); border: 1px solid var(--border-h);
-      background: var(--bg2); color: var(--t1); text-decoration: none; cursor: pointer;
-      transition: border-color .15s, color .15s;
-    }
-    .lbtn:hover { border-color: var(--accent); color: var(--accent); }
+.sec { padding: 0 1.5rem; margin-top: 1.75rem; }
+.sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.sec-line { flex: 1; height: 1px; background: var(--border); }
+.sec-label { font-family: var(--mono); font-size: 11px; color: var(--t3); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
 
-    /* SECTIONS */
-    .sec { padding: 0; margin-top: 2rem; }
-    .sec-head { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
-    .sec-line { flex: 1; height: 1px; background: var(--border); }
-    .sec-label { font-family: var(--mono); font-size: 11px; color: var(--t3); text-transform: uppercase; letter-spacing: 0.1em; white-space: nowrap; }
+.about-card {
+  background: var(--bg1); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.25rem 1.5rem;
+  font-size: 15px; color: var(--t2); line-height: 1.85;
+}
 
-    /* ABOUT */
-    .about-card {
-      background: var(--bg1); border: 1px solid var(--border);
-      border-radius: var(--r); padding: 1.5rem;
-      font-size: 15px; color: var(--t2); line-height: 1.85;
-    }
+.skill-card { background: var(--bg1); border: 1px solid var(--border); border-radius: var(--r); padding: 1.25rem 1.5rem; }
+.sk-block { margin-bottom: 14px; }
+.sk-block:last-child { margin-bottom: 0; }
+.sk-name { font-family: var(--mono); font-size: 11px; color: var(--t3); margin-bottom: 9px; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.tag { font-size: 12px; padding: 4px 11px; border-radius: 999px; border: 1px solid var(--border); color: var(--t2); background: var(--bg0); }
+.tc { border-color: rgba(11,124,110,.25); color: var(--accent); background: var(--accent-dim); }
+.tf { border-color: rgba(37,99,235,.2); color: var(--blue); background: var(--blue-dim); }
 
-    /* SKILLS */
-    .skill-card { background: var(--bg1); border: 1px solid var(--border); border-radius: var(--r); padding: 1.5rem; }
-    .sk-block { margin-bottom: 16px; }
-    .sk-block:last-child { margin-bottom: 0; }
-    .sk-name { font-family: var(--mono); font-size: 11px; color: var(--t3); margin-bottom: 10px; }
-    .tags { display: flex; flex-wrap: wrap; gap: 7px; }
-    .tag { font-size: 12px; padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border); color: var(--t2); background: var(--bg2); }
-    .tc { border-color: rgba(0,223,168,.25); color: var(--accent); background: var(--accent-dim); }
-    .tf { border-color: rgba(77,148,255,.25); color: var(--blue); background: var(--blue-dim); }
+.cert-list { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); }
+.cert {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 1.25rem;
+  background: var(--bg1);
+  border-bottom: 1px solid var(--border);
+  border-left: 3px solid transparent;
+  transition: border-left-color .15s, background .15s;
+}
+.cert:last-child { border-bottom: none; }
+.cert:hover { border-left-color: var(--accent); background: var(--bg0); }
+.cicon {
+  width: 38px; height: 38px; border-radius: var(--r-sm);
+  border: 1px solid var(--border); background: var(--bg0);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--mono); font-size: 10px; color: var(--t3); flex-shrink: 0;
+}
+.cname { font-size: 14px; font-weight: 500; color: var(--t1); margin-bottom: 3px; }
+.csub { font-size: 12px; color: var(--t3); }
+.badge { margin-left: auto; flex-shrink: 0; font-size: 11px; font-family: var(--mono); padding: 3px 9px; border-radius: 999px; white-space: nowrap; }
+.b-done { background: rgba(11,124,110,.1); color: var(--accent); border: 1px solid rgba(11,124,110,.2); }
+.b-wip  { background: rgba(217,119,6,.1); color: #b45309; border: 1px solid rgba(217,119,6,.2); }
+.b-act  { background: rgba(37,99,235,.1); color: var(--blue); border: 1px solid rgba(37,99,235,.2); }
 
-    /* CERTS */
-    .cert-list { border-radius: var(--r); overflow: hidden; border: 1px solid var(--border); }
-    .cert {
-      display: flex; align-items: center; gap: 14px;
-      padding: 14px 1.25rem;
-      background: var(--bg1);
-      border-bottom: 1px solid var(--border);
-      border-left: 3px solid transparent;
-      transition: border-left-color .15s;
-    }
-    .cert:last-child { border-bottom: none; }
-    .cert:hover { border-left-color: var(--accent); }
-    .cicon {
-      width: 40px; height: 40px; border-radius: var(--r-sm);
-      border: 1px solid var(--border); background: var(--bg2);
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--mono); font-size: 10px; color: var(--t3); flex-shrink: 0;
-    }
-    .cname { font-size: 14px; font-weight: 500; color: var(--t1); margin-bottom: 3px; }
-    .csub { font-size: 12px; color: var(--t3); }
-    .badge { margin-left: auto; flex-shrink: 0; font-size: 11px; font-family: var(--mono); padding: 3px 10px; border-radius: 999px; white-space: nowrap; }
-    .b-done { background: rgba(0,223,168,.1); color: var(--accent); border: 1px solid rgba(0,223,168,.2); }
-    .b-wip  { background: rgba(255,176,0,.1);  color: #ffb400;       border: 1px solid rgba(255,176,0,.2); }
-    .b-act  { background: rgba(77,148,255,.1); color: var(--blue);   border: 1px solid rgba(77,148,255,.2); }
+.connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.clink {
+  display: flex; align-items: center; gap: 12px;
+  padding: 14px 16px;
+  background: var(--bg1); border: 1px solid var(--border); border-radius: var(--r);
+  text-decoration: none; transition: border-color .15s, background .15s;
+}
+.clink:hover { background: var(--bg0); border-color: var(--border-h); }
+.cdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+.clabel { font-size: 14px; font-weight: 500; color: var(--t1); }
+.curl { font-size: 11px; color: var(--t3); font-family: var(--mono); }
+</style>
 
-    /* CONNECT */
-    .connect-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    @media(max-width: 480px) { .connect-grid { grid-template-columns: 1fr; } }
-    .clink {
-      display: flex; align-items: center; gap: 12px;
-      padding: 14px 16px;
-      background: var(--bg1); border: 1px solid var(--border); border-radius: var(--r);
-      text-decoration: none; transition: border-color .15s;
-    }
-    .clink:hover { border-color: var(--border-h); }
-    .cdot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
-    .clabel { font-size: 14px; font-weight: 500; color: var(--t1); }
-    .curl { font-size: 11px; color: var(--t3); font-family: var(--mono); }
-
-    /* FOOTER */
-    footer { margin-top: 3rem; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--t3); }
-  </style>
-</head>
-<body>
+<div class="wrap">
 
   <div class="hero">
     <div class="online"><span class="pulse"></span>@Bigmyke</div>
@@ -145,108 +124,101 @@
     <p class="hero-title">SOC Practitioner &nbsp;·&nbsp; AI &nbsp;·&nbsp; IoT &nbsp;·&nbsp; Automation</p>
     <p class="hero-bio">Multi-disciplinary professional actively practising security operations and deepening expertise across AI, IoT, and automation. Works smart. Builds deep. Documents everything.</p>
     <div class="links">
-      <a class="lbtn" href="https://linkedin.com/in/michaelleramo">LinkedIn</a>
+      <a class="lbtn" href="https://www.linkedin.com/in/michael-leramo/">LinkedIn</a>
       <a class="lbtn" href="https://github.com/bigmyk-e">GitHub</a>
-      <a class="lbtn" href="https://tryhackme.com/p/bigmyke">TryHackMe</a>
+      <a class="lbtn" href="https://tryhackme.com/p/Bigmyke">TryHackMe</a>
       <a class="lbtn" href="https://x.com/Bigmykeb">X / Twitter</a>
     </div>
   </div>
 
-  <div class="wrap">
-
-    <div class="sec">
-      <div class="sec-head"><span class="sec-label">About</span><div class="sec-line"></div></div>
-      <p class="about-card">I'm a multi-disciplinary professional actively practising SOC operations and deepening my expertise across cybersecurity, AI, IoT, and automation. I believe in working smart — using the right tools, building the right systems, and staying ahead of the curve. Alongside finance and admin responsibilities, I document my security journey publicly and keep my skills sharp every day. Rooted in education, driven by purpose, building for the long game.</p>
-    </div>
-
-    <div class="sec">
-      <div class="sec-head"><span class="sec-label">Skills</span><div class="sec-line"></div></div>
-      <div class="skill-card">
-        <div class="sk-block">
-          <p class="sk-name">// cybersecurity</p>
-          <div class="tags">
-            <span class="tag tc">SOC operations</span>
-            <span class="tag tc">SIEM tools</span>
-            <span class="tag tc">MITRE ATT&amp;CK</span>
-            <span class="tag tc">Incident triage</span>
-            <span class="tag tc">Network fundamentals</span>
-            <span class="tag tc">AI in security</span>
-            <span class="tag tc">IoT security</span>
-            <span class="tag tc">Automation</span>
-          </div>
-        </div>
-        <div class="sk-block">
-          <p class="sk-name">// finance &amp; admin</p>
-          <div class="tags">
-            <span class="tag tf">Invoicing &amp; reconciliation</span>
-            <span class="tag tf">Payroll preparation &amp; management</span>
-            <span class="tag tf">Staffing management</span>
-            <span class="tag tf">Occupancy reporting</span>
-            <span class="tag tf">Funding management</span>
-          </div>
-        </div>
-        <div class="sk-block">
-          <p class="sk-name">// education &amp; communication</p>
-          <div class="tags">
-            <span class="tag">Early childhood education</span>
-            <span class="tag">Technical writing</span>
-            <span class="tag">Stakeholder communication</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec">
-      <div class="sec-head"><span class="sec-label">Certifications</span><div class="sec-line"></div></div>
-      <div class="cert-list">
-        <div class="cert">
-          <div class="cicon">CC</div>
-          <div><p class="cname">ISC2 Certified in Cybersecurity (CC)</p><p class="csub">Issued December 2024 · ISC2</p></div>
-          <span class="badge b-done">Certified</span>
-        </div>
-        <div class="cert">
-          <div class="cicon">THM</div>
-          <div><p class="cname">Cybersecurity 101 Learning Path</p><p class="csub">TryHackMe · Completed</p></div>
-          <span class="badge b-done">Completed</span>
-        </div>
-        <div class="cert">
-          <div class="cicon">S+</div>
-          <div><p class="cname">CompTIA Security+</p><p class="csub">CompTIA · Actively studying</p></div>
-          <span class="badge b-wip">In progress</span>
-        </div>
-        <div class="cert">
-          <div class="cicon">SOC</div>
-          <div><p class="cname">SOC operations &amp; deepening expertise</p><p class="csub">Active practice · SOC, AI, IoT &amp; automation</p></div>
-          <span class="badge b-act">Active</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="sec">
-      <div class="sec-head"><span class="sec-label">Connect</span><div class="sec-line"></div></div>
-      <div class="connect-grid">
-        <a class="clink" href="https://linkedin.com/in/michaelleramo">
-          <div class="cdot" style="background:#0A66C2"></div>
-          <div><p class="clabel">LinkedIn</p><p class="curl">linkedin.com/in/michaelleramo</p></div>
-        </a>
-        <a class="clink" href="https://github.com/bigmyk-e">
-          <div class="cdot" style="background:#888"></div>
-          <div><p class="clabel">GitHub</p><p class="curl">github.com/bigmyk-e</p></div>
-        </a>
-        <a class="clink" href="https://tryhackme.com/p/bigmyke">
-          <div class="cdot" style="background:#00dfa8"></div>
-          <div><p class="clabel">TryHackMe</p><p class="curl">tryhackme.com/p/bigmyke</p></div>
-        </a>
-        <a class="clink" href="https://x.com/Bigmykeb">
-          <div class="cdot" style="background:#dde2f0"></div>
-          <div><p class="clabel">X / Twitter</p><p class="curl">@Bigmykeb</p></div>
-        </a>
-      </div>
-    </div>
-
-    <footer>michaelleramo.github.io &nbsp;·&nbsp; built with purpose</footer>
-
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">About</span><div class="sec-line"></div></div>
+    <p class="about-card">I'm a multi-disciplinary professional actively practising SOC operations and deepening my expertise across cybersecurity, AI, IoT, and automation. I believe in working smart — using the right tools, building the right systems, and staying ahead of the curve. Alongside finance and admin responsibilities, I document my security journey publicly and keep my skills sharp every day. Rooted in education, driven by purpose, building for the long game.</p>
   </div>
 
-</body>
-</html>
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Skills</span><div class="sec-line"></div></div>
+    <div class="skill-card">
+      <div class="sk-block">
+        <p class="sk-name">// cybersecurity</p>
+        <div class="tags">
+          <span class="tag tc">SOC operations</span>
+          <span class="tag tc">SIEM tools</span>
+          <span class="tag tc">MITRE ATT&amp;CK</span>
+          <span class="tag tc">Incident triage</span>
+          <span class="tag tc">Network fundamentals</span>
+          <span class="tag tc">AI in security</span>
+          <span class="tag tc">IoT security</span>
+          <span class="tag tc">Automation</span>
+        </div>
+      </div>
+      <div class="sk-block">
+        <p class="sk-name">// finance &amp; admin</p>
+        <div class="tags">
+          <span class="tag tf">Invoicing &amp; reconciliation</span>
+          <span class="tag tf">Payroll preparation &amp; management</span>
+          <span class="tag tf">Staffing management</span>
+          <span class="tag tf">Occupancy reporting</span>
+          <span class="tag tf">Funding management</span>
+        </div>
+      </div>
+      <div class="sk-block">
+        <p class="sk-name">// education &amp; communication</p>
+        <div class="tags">
+          <span class="tag">Early childhood education</span>
+          <span class="tag">Technical writing</span>
+          <span class="tag">Stakeholder communication</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Certifications</span><div class="sec-line"></div></div>
+    <div class="cert-list">
+      <div class="cert">
+        <div class="cicon">CC</div>
+        <div><p class="cname">ISC2 Certified in Cybersecurity (CC)</p><p class="csub">Issued December 2024 · ISC2</p></div>
+        <span class="badge b-done">Certified</span>
+      </div>
+      <div class="cert">
+        <div class="cicon">THM</div>
+        <div><p class="cname">Cybersecurity 101 Learning Path</p><p class="csub">TryHackMe · Completed</p></div>
+        <span class="badge b-done">Completed</span>
+      </div>
+      <div class="cert">
+        <div class="cicon">S+</div>
+        <div><p class="cname">CompTIA Security+</p><p class="csub">CompTIA · Actively studying</p></div>
+        <span class="badge b-wip">In progress</span>
+      </div>
+      <div class="cert">
+        <div class="cicon">SOC</div>
+        <div><p class="cname">SOC operations &amp; deepening expertise</p><p class="csub">Active practice · SOC, AI, IoT &amp; automation</p></div>
+        <span class="badge b-act">Active</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="sec-head"><span class="sec-label">Connect</span><div class="sec-line"></div></div>
+    <div class="connect-grid">
+      <a class="clink" href="https://www.linkedin.com/in/michael-leramo/">
+        <div class="cdot" style="background:#0A66C2"></div>
+        <div><p class="clabel">LinkedIn</p><p class="curl">linkedin.com/in/michael-leramo</p></div>
+      </a>
+      <a class="clink" href="https://github.com/bigmyk-e">
+        <div class="cdot" style="background:#444"></div>
+        <div><p class="clabel">GitHub</p><p class="curl">github.com/bigmyk-e</p></div>
+      </a>
+      <a class="clink" href="https://tryhackme.com/p/Bigmyke">
+        <div class="cdot" style="background:#0b7c6e"></div>
+        <div><p class="clabel">TryHackMe</p><p class="curl">tryhackme.com/p/Bigmyke</p></div>
+      </a>
+      <a class="clink" href="https://x.com/Bigmykeb">
+        <div class="cdot" style="background:#111"></div>
+        <div><p class="clabel">X / Twitter</p><p class="curl">@Bigmykeb</p></div>
+      </a>
+    </div>
+  </div>
+
+</div>
